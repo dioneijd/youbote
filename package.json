@@ -1,0 +1,17 @@
+{
+  "name": "youbote",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dioneijd/youbote.git",
+  "author": "Dionei J. Delangolo <dionei.jd@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
