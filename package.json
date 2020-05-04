@@ -9,7 +9,9 @@
     "dev": "node index.js"
   },
   "dependencies": {
-    "readline-sync": "^1.4.10"
+    "algorithmia": "^0.3.10",
+    "readline-sync": "^1.4.10",
+    "sbd": "^1.0.18"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
