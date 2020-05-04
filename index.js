@@ -4,7 +4,9 @@ const robots = {
 }
 
 async function Start(){
-    const content = {}
+    const content = {
+        maximumSentences: 7
+    }
 
     content.searchTerm = robots.userInput.AskAndReturnSearchTerm() 
     content.prefix = robots.userInput.AskAndReturnPerfix() 
@@ -12,7 +14,7 @@ async function Start(){
     await robots.text(content)
    
 
-    //console.log(content)
+    console.log(content.sentences)
 }
 
 Start()
