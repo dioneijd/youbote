@@ -5,24 +5,31 @@ const sentenceBoundaryDetection = require('sbd')
 const watsonApiKey = require('./../credentials/watson-nlu.json').apikey
 const naturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js')
 
-var nlu = new naturalLanguageUnderstandingV1({
+const nlu = new naturalLanguageUnderstandingV1({
     iam_apikey: watsonApiKey,
     version: '2018-04-05',
     url: 'https://gateway.watsonplatform.net/natural-language-understanding/api/'
 })
 
+const state = require('./state.js')
 
 
 
 
-
-async function robot(content){
+async function robot(){
+    const content = state.Load()
+    
     await fetchContentFromWikipedia(content)
     sanitizeContent(content)
     breakContentIntoSentences(content)
     limitMaximumSentences(content)
     await fetchKeywordsOfAllSentences(content)
     
+    state.Save(content)
+
+
+
+
     async function fetchContentFromWikipedia(content){
         const algorithmiaAutheticated = algorithmia.client(algorithmiaApiKey)
         const wikipediaAlgorithm = algorithmiaAutheticated.algo('web/WikipediaParser/0.1.2?timeout=300')
